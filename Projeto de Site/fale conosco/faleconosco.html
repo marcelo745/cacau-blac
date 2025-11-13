@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fale Conosco</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <section>
+        <header>
+            <h2><a href="#" class="logo">Início</a></h2>
+            <input type="checkbox" id="check">
+            <label for="check" class="menu-btn"><i class="fas fa-bars"></i></label>
+            <label for="check" class="close-btn"><i class="fas fa-times"></i></label>
+            <div class="navigation">
+                <a href="/index.html">Início</a>
+                <a href="#">Sobre</a>
+                <a href="#">Info</a>
+                <a href="/Projetos/Projeto de Site/services/serviços.html">Serviço</a>
+                <a href="/Projetos/Projeto de Site/fale conosco/faleconosco.html">Fale conosco</a>
+            </div>
+        </header>
+        
+        <div class="contact-container">
+            <form id="formContato" class="contact-left">
+                <div class="contact-left-title">
+                    <h2>Fale Conosco</h2>
+                    <hr>
+                </div>
+                <input type="text" id="nome" name="name" placeholder="Seu Nome" class="contact-inputs" required>
+                <input type="email" id="email" name="email" placeholder="Seu Email (opcional)" class="contact-inputs">
+                <textarea id="mensagem" name="message" placeholder="Sua Mensagem" class="contact-inputs" required></textarea>
+                <button type="submit">Enviar pelo WhatsApp</button>
+            </form>
+        </div>
+        
+        <div class="media-icons">
+            <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" id="zap-link"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+        </div> 
+    </section>
+
+    <script>
+        document.getElementById("formContato").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const nome = document.getElementById("nome").value;
+            const email = document.getElementById("email").value;
+            const mensagem = document.getElementById("mensagem").value;
+
+            // Substitua pelo seu número (com DDI e DDD)
+            const numero = "5571991782779";
+
+            // Cria a mensagem — só inclui e-mail se o campo tiver conteúdo
+            let texto = `🍫 Olá! Meu nome é ${nome}.%0A`;
+            if (email.trim() !== "") {
+                texto += `📧 Email: ${email}%0A`;
+            }
+            texto += `📝 Mensagem:%0A${mensagem}`;
+
+            const link = `https://wa.me/${numero}?text=${texto}`;
+            window.open(link, "_blank");
+        });
+    </script>
+</body>
+</html>
